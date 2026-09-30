@@ -41,7 +41,7 @@ if st.button("🔍 Ask AI"):
         question_embedding = embedding_model.encode([question])[0]
         results = collections.query(
             query_embeddings=[question_embedding.tolist()],
-            n_results=min(3, collection.count())
+            n_results=min(3, collections.count())
         )
         retrieved_chunks = results["documents"][0]
         context = "\n\n".join(retrieved_chunks)
